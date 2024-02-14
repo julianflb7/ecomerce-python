@@ -1,0 +1,26 @@
+[
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Camiseta hombre",
+        "description": "Camiseta hombre",
+        "price": "80.00",
+        "slug": "camiseta-hombre",
+        "image": "products/Camisetahombre_LLA7VT2.png",
+        "created_at": "2023-07-22T18:03:34.573Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "Camiseta mujer",
+        "description": "Camiseta mujer",
+        "price": "75.00",
+        "slug": "camiseta-mujer",
+        "image": "products/Camisetamujer_p5bPDEl.png",
+        "created_at": "2023-07-22T18:03:54.423Z"
+    }
+}
+]

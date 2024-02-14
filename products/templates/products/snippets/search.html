@@ -1,0 +1,8 @@
+<form action="{% url 'products:search' %}">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="q" value= "{{ query }}" placeholder="Buscar">
+        <div class="input-group-append">
+            <input type="submit" name="" value="Buscar" class="btn btn-info">
+        </div>
+    </div>
+</form>

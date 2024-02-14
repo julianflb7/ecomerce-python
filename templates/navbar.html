@@ -1,0 +1,56 @@
+<!--ESTAS URLs SE LLAMAN PARA IMPLEMENTAR ABAJO EL if request.path
+Y RESAKTAR LA PESTAÑA EN NAVBAR QUE NOS ENCONTREMOS-->
+{% url 'login' as login %}
+{% url 'register' as register %}
+{% url 'carts:cart' as cart %}
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+  <div class="container-fluid">
+
+    <a href="{% url 'index' %}" class="navbar-brand text-info">E-comerce</a>
+
+    <ul class="navbar-nav">
+      <li class="navbar-nav">
+        <a class="nav-link {% if request.path == cart %}active{% endif %}" href="{{ cart }}">
+          Mi Carrito <span class="fas fa-shopping-cart"></span>
+        </a>
+      </li>
+    </ul>
+
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbarToggleExternalContent" class="navbar-collapse collapse hide flex-row-reverse">
+
+      <ul class="nav navbar-nav flex-row-reverse">
+
+        {% if user.is_authenticated %}
+
+          <li class="navbar-item">
+            <a href="{%url 'logout' %}" class="nav-link">
+              <span class="fa-solid fa-right-from-bracket"></span>
+              Logout</a>
+          </li>
+
+        {% else %}
+
+          <li class="navbar-item">
+            <a href="{{ login }}" class="nav-link {% if request.path == login %}active{% endif %}">
+              <span class="fas fa-user"></span>
+              Login</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="{{ register }}" class="nav-link {% if request.path == register %}active{% endif %}">
+              <span class="fas fa-user-plus"></span>
+              Registro</a>
+          </li>
+
+        {% endif %}
+      </ul>
+    </div>
+
+  </div>
+</nav>

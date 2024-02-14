@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load cart_extras %}
+
+{% block content %}
+
+  <div class="col-3">
+
+    {% if product.image %}
+      <img src="{{ product.image.url }}" alt="Imagen del producto" width='200' height='250'>
+    {% endif %}
+  </div>
+
+  <div class="col">
+    <div class="h1">{{ product.title }}</div>
+    <div class="h5 font-weight-bold">
+      precio: <span class="text-danger">${{ product.price }}</span>
+    </div>
+    <div class="">
+      <p>{{ product.description }}</p>
+    </div>
+    <div class="h5 font-weight-bold text-success">
+      {{ quantity | quantity_add_format }} al carrito<!-- Se aplica el filtro del modulo cart_extras.py-->
+    </div>
+    <div class="mt-2">
+      <a href="{% url 'index' %}" class="btn btn-info">Ver mas productos</a>
+      <a href="{% url 'carts:cart' %}" class="btn btn-info">Ir al carrito</a>
+    </div>
+  </div>
+
+
+{% endblock %}
